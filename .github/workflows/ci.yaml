@@ -46,15 +46,15 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max  
 
-      # 4. AWS 자격 증명 설정
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+      # # 4. AWS 자격 증명 설정 이후 작업을 위해서 필요한 것임
+      # - name: Configure AWS Credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      #     aws-region: ${{ secrets.AWS_REGION }}
 
-      # # 5. EKS kubeconfig 업데이트
+      # # # 5. EKS kubeconfig 업데이트
       # - name: Update Kubeconfig
       #   run: |
       #     aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION || 'ap-northeast-2' }}
